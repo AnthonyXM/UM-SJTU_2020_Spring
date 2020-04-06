@@ -2,15 +2,15 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 
-int init_hello_module(void) {
-	printk("init_hello_module\n");
-	return0;
+static int __init hello_init(void) {
+	printk(KERN_INFO "init_hello_module\n");
+	return 0;
 }
 
-void exit_hello_module(void) {
-	printk("exit_hello_module\n");
+static void __exit hello_exit(void) {
+	printk(KERN_INFO "exit_hello_module\n");
 }
 
 MODULE_LICENSE("GPL");
-module_init(init_hello_module);
-module_exit(exit_hello_module);
+module_init(hello_init);
+module_exit(hello_exit);
