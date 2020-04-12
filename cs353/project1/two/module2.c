@@ -29,8 +29,5 @@ static void __exit module2_exit(void) {
 }
 
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("Module 2");
-MODULE_AUTHOR("AnthonyXM");
-
 module_init(module2_init);
 module_exit(module2_exit);
