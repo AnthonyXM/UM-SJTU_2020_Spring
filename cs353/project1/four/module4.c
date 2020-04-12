@@ -89,11 +89,11 @@ static struct file_operations my_fops = {
  
 static int __init my_init(void)
 {
-    struct proc_dri_entry *file;
+    struct proc_dir_entry *file;
     /*3.10以后内核的proc文件的新接口
       需要关联file_operations*/
     /*1,首先要调用创建proc文件的函数，需要绑定flie_operations*/
-    file = proc_create("abc_proc", 0644, NULL, &my_fops);
+    file = proc_create("abc_proc", 0666, NULL, &my_fops);
     if(!file)
         return -ENOMEM;
     return 0;
