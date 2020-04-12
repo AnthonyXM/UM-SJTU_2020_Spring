@@ -11,7 +11,7 @@ static ssize_t module3_proc_open(struct file* file, char __user* buffer, size_t 
 	if(count > temp)
 		count = temp;
 	temp = temp - count;
-	copy_to_user(buf,msg, count);
+	copy_to_user(buffer, msg, count);
 	if(count==0)
 		temp = len;
 	return count;
