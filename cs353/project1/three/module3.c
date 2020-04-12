@@ -2,7 +2,7 @@
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
 #include <linux/sched.h>
-#include <asm/uaccess.h>
+#include <linux/uaccess.h>
 
 int len, temp;
 char* msg;
@@ -11,7 +11,7 @@ static ssize_t module3_proc_open(struct file* file, char __user* buffer, size_t 
 	if(count > temp)
 		count = temp;
 	temp = temp - count;
-	raw_copy_to_user(buf,msg, count);
+	copy_to_user(buf,msg, count);
 	if(count==0)
 		temp = len;
 	return count;
